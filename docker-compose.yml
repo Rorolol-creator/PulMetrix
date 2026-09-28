@@ -1,0 +1,16 @@
+services:
+  frontend:
+    image: registry.cri.epita.fr/lucil.finkelstein/pulmetrix/frontend:latest
+    container_name: pulmetrix_front
+    hostname: pulmetrix
+    ports:
+      - "80:80"
+
+  backend:
+    image: registry.cri.epita.fr/lucil.finkelstein/pulmetrix/backend:latest
+    volumes:
+      - ./backend/data:/app/data
+    container_name: pulmetrix_api
+    hostname: pulmetrix_api
+    ports:
+      - "8000:8000"
